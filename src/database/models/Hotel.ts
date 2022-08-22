@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
-const db = require("../../database/connection");
+import { DataTypes } from 'sequelize/types';
+import { db } from '../db';
 
-const Hotel = db.define("hotels", {
+export const HotelModel = db.define('hotels', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -33,5 +33,3 @@ const Hotel = db.define("hotels", {
         allowNull: false
     }
 })
-
-module.exports = Hotel
