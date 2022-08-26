@@ -10,6 +10,11 @@ app.use(json());
 app.use(router);
 
 app.listen(PORT, async () => {
-    await db.sync()
+    try{
+        await db.sync()
+        console.log("Successfully connected to the database!")
+    } catch(err) {
+        console.log(`Unable to connect to the database. Msg: ${err}`)
+    }
     console.log(`App running on PORT ${PORT}`);
 })

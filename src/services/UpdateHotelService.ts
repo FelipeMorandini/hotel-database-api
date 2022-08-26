@@ -1,4 +1,4 @@
-import { HotelModel } from "database/models/Hotel";
+import { HotelModel } from "../database/models/Hotel";
 
 type Hotel = {
     id: number;
@@ -11,7 +11,11 @@ type Hotel = {
 }
 
 export class UpdateHotelService {
-    async execute() {
-        
+    async execute(hotel: Hotel) {
+        return await HotelModel.update(hotel, {
+            where: {
+                id: hotel.id
+            }
+        })
     }
 }

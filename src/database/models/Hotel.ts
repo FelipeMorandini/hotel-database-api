@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize/types';
+import { DataTypes } from 'sequelize';
 import { db } from '../db';
 
 export const HotelModel = db.define('hotels', {
@@ -32,4 +32,4 @@ export const HotelModel = db.define('hotels', {
         type: DataTypes.STRING,
         allowNull: false
     }
-})
+}, {timestamps: false})

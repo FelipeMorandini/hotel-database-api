@@ -1,17 +1,11 @@
-import { HotelModel } from "database/models/Hotel";
-
-type Hotel = {
-    id: number;
-    name: string;
-    description: string;
-    lat: string;
-    lng: string;
-    price: number;
-    status: string;
-}
+import { HotelModel } from "../database/models/Hotel";
 
 export class GetHotelByIdService {
-    async execute() {
-        
+    async execute(id: number) {
+        return await HotelModel.findAll({
+            where: {
+                id: id
+            }
+        })
     }
 }

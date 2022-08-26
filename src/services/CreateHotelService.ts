@@ -1,7 +1,6 @@
-import { HotelModel } from "database/models/Hotel";
+import { HotelModel } from "../database/models/Hotel";
 
 type Hotel = {
-    id: number;
     name: string;
     description: string;
     lat: string;
@@ -11,7 +10,9 @@ type Hotel = {
 }
 
 export class CreateHotelService {
-    async execute() {
-        
+    async execute(hotel: Hotel) {
+
+        return await HotelModel.create(hotel);
+    
     }
 }

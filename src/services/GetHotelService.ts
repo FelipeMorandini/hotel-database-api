@@ -1,17 +1,14 @@
-import { HotelModel } from "database/models/Hotel";
-
-type Hotel = {
-    id: number;
-    name: string;
-    description: string;
-    lat: string;
-    lng: string;
-    price: number;
-    status: string;
-}
+import { HotelModel } from "../database/models/Hotel";
+import { Op } from 'sequelize'
 
 export class GetHotelService {
-    async execute() {
-        
+    async execute(min: number, max: number) {
+        return await HotelModel.findAll({
+            where: {
+                price: {
+                    [Op.between]: [min, max]
+                }
+            }
+        })
     }
 }
